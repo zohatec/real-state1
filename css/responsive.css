@@ -24,6 +24,18 @@
   .gal { grid-template-columns: repeat(2, 1fr); }
   .gal figure:nth-child(1), .gal figure:nth-child(6) { grid-column: span 2; }
   .vf-row { grid-template-columns: 1fr; }
+    /* ── মোবাইল হেডার ফিক্স: আইকনগুলো ডানে ঠিকঠাক বসবে, কাটা পড়বে না ── */
+  .h-tools { margin-left: auto; gap: 8px; flex-shrink: 0; }
+  .h-in { gap: 10px; padding: 0 14px; }
+  .logo { font-size: 1.1rem; gap: 8px; }
+  .logo-mark { width: 32px; height: 32px; }
+  .logo small { font-size: .5rem; letter-spacing: .12em; }
+  .lang-sw button { padding: 6px 9px; font-size: .75rem; }
+  .h-phone { padding: 0 10px; height: 36px; }
+  .nav-burger { width: 38px; height: 38px; }
+  /* মেনু খুললে হেডারের ঠিক নিচে বসবে — স্ক্রল করা অবস্থাতেও ফাঁক দেখাবে না */
+  header.solid { height: var(--header-h); }
+  .pj-subnav { top: var(--header-h); }
 }
 
 @media (max-width: 620px) {
@@ -45,4 +57,11 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .tk-track { animation: none; }
+}
+/* ── খুব ছোট স্ক্রিন (≤380px): সাব-টাইটেল লুকিয়ে নিশ্চিত ফিট ── */
+@media (max-width: 380px) {
+  .h-in { padding: 0 12px; }
+  .logo small { display: none; }
+  .logo { font-size: 1.05rem; }
+  .lang-sw button { padding: 5px 8px; }
 }
